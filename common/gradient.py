@@ -24,7 +24,10 @@ def numerical_gradient_2d(f, X):
         return _numerical_gradient_1d(f, X)
     else:
         grad = np.zeros_like(X)
-        
+
+        #当你使用 enumerate(X) 时，它会返回一个包含 (index, value) 元组的迭代器：
+        #index 是当前元素在 X 中的索引（从 0 开始）。
+        #value 是 X 中对应的元素。
         for idx, x in enumerate(X):
             grad[idx] = _numerical_gradient_1d(f, x)
         
